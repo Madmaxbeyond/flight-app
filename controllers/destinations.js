@@ -9,6 +9,7 @@ function create(req, res) {
         if (err) res.redirect(`/flights/${flight._id}`);
         flight.destinations.push(req.body);
         flight.save(err => {res.redirect(`/flights/${flight._id}`)});
-        console.log(flight.destinations[0], '--------');
+        
     });
+    console.log(flight.destinations[0].airport, '--------');
 }
