@@ -1,32 +1,45 @@
 <%- include('../partials/header') %>
 <!-- This is for the calendar drop down for choosing departing flight -->
 <!-- <input type="datetime-local"> -->
+<form action="/flights" method="POST" autocomplete="off">
+    <label>Airline:</label>
+    <br>
+    <select name="airline">
+      <option value="American" selected>American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select>
+    <br>
+    <br>
+    <label>Flight Number:</label>
+    <br>
+    <input type="text" name="flightNo">
+    <br>
+    <br>
+    <label>Origin:</label>
+    <br>
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN" selected>DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+    <br>
+    <br>
+    <label>Departure Date & Time:</label>
+    <br>
+    <input type="datetime-local" name="departs">
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Add Flight">
+  </form>
 
 
-<input type="text">
 
-<button type="submit">Add Flight</button>
 
-<table>
-    <thead>
-        <tr>
-            <th>Flights</th>
-            <th>Date</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% flights.forEach(function(f) { %>
-            <tr>
-              <td><%= f.airline %></td>
-              <td><%= f.airport %></td>
-              <td><%= f.flightNo %></td>  
-              <td><input type="datetime-local"></td>
-              <!-- <td><%= f.departs %></td> -->
-              <td><a href="/flights/<%= f._id %>"></a></td>
-            </tr>
-            <% }); %>
-    </tbody>
-    </table>
+
+
 
 <%- include('../partials/footer') %>
